@@ -1,0 +1,32 @@
+
+
+<label for='bmn'></label>
+<select name='bmn'  >
+{% for mn in mns %}
+    <option value='{{ mn }}'>{{ mn }}</option>
+{% endfor %}
+</select><br>
+
+
+
+
+b_mn   =request.GET['bmn']
+media  =request.GET.getlist['fmedia']
+
+
+喜歡的媒體(複選題)：
+<input type='checkbox' name='fmedia' value='Reporters'>報導者
+<input type='checkbox' name='fmedia' value='NY_Times' >紐約時報
+<input type='checkbox' name='fmedia' value='Business_Weekly'>商周
+<input type='checkbox' name='fmedia' value='Initum'>端
+<input type='checkbox' name='fmedia' value='Taipei_Times'>台北Times
+<br/>
+
+
+媒體喜好:
+{% for m in media %}
+    {{ m }}  
+{% empty %}
+    No comment
+{% endfor %}
+</br>

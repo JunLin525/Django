@@ -1,0 +1,91 @@
+<!--get_example.html(HTML_Form01)-->
+{% extends 'base.html' %}
+{% block title %}我有話要說 {% endblock %}
+{% block content %}
+<div class='container'>
+<!-- GOOGLE 按鈕，可以內建查詢 -->
+<form action='https://www.google.com.tw/search?' method='GET'>
+    <input text  ='search_text'   type='text' name='q'>
+    <input type ='submit' value ='問谷歌大神'>
+</form><br><br>
+
+
+<!-- 表單開啟 -->
+<form name ='my form' action='/' method='GET'>
+    <!-- 提供出生年月的下拉表單 -->
+    <!-- 年份先 -->
+    <label for='byear'>出生年月</label>
+    <select name='byear'  >
+    {% for year in years %}
+        <option value='{{ year }}'>{{ year }}</option>
+    {% endfor %}
+    </select>
+
+    <!-- 月份，lable內不寫，可以讓年月日中間下滑選單不會有字比較美觀 -->
+    <label for='bmonth'></label>
+    <select name='bmonth'  >
+    {% for m in mns %}
+        <option value='{{ m }}'>{{ m }}</option>
+    {% endfor %}
+    </select>
+    
+    <!-- 日期 ，lable內不寫，可以讓年月日中間下滑選單不會有字比較美觀-->
+    <label for='bday'></label>
+    <select name='bday'  >
+    {% for d in days %}
+        <option value='{{ d }}'>{{ d }}</option>
+    {% endfor %}
+    </select><br>
+
+    <!-- 建立checkbox-->
+    喜歡的媒體(複選):
+    <input type ='checkbox' name='fmedia' value='報導者'>報導者
+    <input type ='checkbox' name='fmedia' value='端傳媒'>端傳媒
+    <input type ='checkbox' name='fmedia' value='鏡周刊'>鏡周刊
+    <input type ='checkbox' name='fmedia' value='壹週刊'>壹週刊
+    <input type ='checkbox' name='fmedia' value=  '上報'>　上報
+    <br/>
+     <!-- 建立radio-->
+     居住地(單選):
+     <input type ='radio' name='location' value='台灣本島'>台灣本島
+     <input type ='radio' name='location' value='台灣離島'>台灣離島
+     <input type ='radio' name='location' value='居於國外'>居於國外
+    
+     <br/>
+    <!-- id跟password -->
+    <label for ='user_id'>    Your ID:</label>
+    <input id  ='user_id'     type='text' name='user_id'>
+    <lable for ='user_pass'>  Your password:</lable>
+    <input id  ='user_pass'   type='password' name='user_pass'>
+    <input type ='submit' value ='登入'>
+    <input type ='reset'  value ='清除重填'>
+    <br>
+</form>
+
+   <!-- 回傳之訊息 -->
+Your ID: {{urid | default:" 請輸入ID "}}<br>
+    {% if verified %}
+    <ul>
+    <li><em>你通過了驗證</em></li>
+    <li><em>你的出生年月是：{{ se_byear }} / {{se_month}} / {{se_day}}</em></li>
+    <li><em>    喜好的媒體:
+                {% for c in urfmedia %}
+                    {{ c }}
+                {% empty %}
+                    Nocomment
+                {% endfor %}</em></li>
+    <li><em>居住地：{{ locations | default:" 請選擇您的居所 " }}</em></li>
+    </ul>
+    {% else %}
+    <br>
+    <em>{{urid| default:" "}}你的帳號或密碼錯啦</em>
+    {% endif %}
+    <br>
+    
+
+
+    
+
+</div>
+
+{% endblock %}

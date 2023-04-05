@@ -1,0 +1,34 @@
+<!--base.html-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <!--Latest complied and minified CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+
+        <!--Optional theme-->
+        <link rel="styleshtte" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"integrity="sha384-tLW2N01lMqjakBkx3l/M9#ahuwpSteNvV63J5ezn3uZzap10u7EYsXMjQV+0En5r"
+        crossorigin="anonymous">
+
+        <!--Latest compiled and minified JavaScript-->
+        <script src="https://maxacdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"integrity="sha384-
+        0mSbJDEHialtmuBBQP6A4Qrprq5OVtW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7XS"
+        crossorigin="anonymous"></script>
+
+        <style>
+            h1, h2, h3, h4, h5, p, div{
+                font-family:微軟正黑體;
+            }
+        </style>
+    </head>
+    <body>
+        {% include "header.html" %}
+        {% block content %}{% endblock %}
+        {% include "footer.html" %}
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+        crossorigin="anonymous"></script>
+    </body>
+</html>

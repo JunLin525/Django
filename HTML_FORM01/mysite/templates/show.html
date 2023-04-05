@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}留言板版 {% endblock %}
+{% block content %}
+
+<div class="row">
+{% for s in show_post %}
+ <div class="col-sm-12 col-md-4">
+    <div class='panel panel-primary'>
+    <div class='panel-heading'>{{ s.nickname }}的貼文</div>
+    <div class='panel-body'>{{ s.message }}</div>
+    </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

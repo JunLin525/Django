@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Create a New Question</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ question_form.as_p }}
+    {{ choice_form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
